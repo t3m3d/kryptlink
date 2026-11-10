@@ -626,7 +626,7 @@ func _hex(c) {
 
 just run {
     if len(cfgPassword()) == 0 {
-        kp("kryptlink: KRYPTLINK_PASSWORD env var is required")
+        print("kryptlink: KRYPTLINK_PASSWORD env var is required")
         exit("1")
     }
 
@@ -635,12 +635,12 @@ just run {
 
     let srv = serverListen(port)
     if srv < 0 {
-        kp("kryptlink: listen failed on port " + port)
+        print("kryptlink: listen failed on port " + port)
         exit("1")
     }
-    kp("kryptlink on http://127.0.0.1:" + port)
-    kp("public host: " + cfgPublicHost())
-    kp("db: " + cfgDbPath())
+    print("kryptlink on http://127.0.0.1:" + port)
+    print("public host: " + cfgPublicHost())
+    print("db: " + cfgDbPath())
 
     let seed = toInt(dtNowEpoch())
     while "1" == "1" {
